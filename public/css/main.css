@@ -1,0 +1,34 @@
+.signinbut{
+    padding-right: 20px;
+    float: right;   
+    padding-top: 30px;  
+}
+.logo{
+    font-family: 'Pacifico', cursive;
+    font-size: 50px;
+    color: red;
+    text-align: left;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    padding-left: 40px;
+}
+/* unvisited link */
+.nav-home:link {
+    color: red;
+}
+
+/* visited link */
+.nav-home:visited {
+    color: red;
+}
+
+/* mouse over link */
+.nav-home:hover {
+    color: white;
+    text-decoration: none;
+}
+
+/* selected link */
+.nav-home:active {
+    color: red;
+}

@@ -1,0 +1,101 @@
+.square {
+    width: 180px;
+    height: 180px;
+    float: left;
+    margin: 30px 10px 10px 30px;
+    border-radius: 120px;
+}
+.square:hover {
+    border: 5px solid white;
+}
+
+#outsideBox {
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, .8);
+    border-radius: 100px;
+}
+
+#topLeft {
+    /*background-color: rgb(255,0,0);*/
+    opacity: 0.8;
+    position: absolute;
+    background-image: url("/../img/mufasa.png");
+}
+
+#topRight {
+    /*background-color: rgb(0,255,0);*/
+    margin: 30px 10px 10px 270px;
+    opacity: 0.8;
+    position: absolute;
+    background-image: url("/../img/scar.jpg");
+}
+
+#bottomLeft {
+    /*background-color: rgb(0,0,255);*/
+    opacity: 0.8;
+    position: absolute;
+    margin: 280px 10px 10px 30px;
+    background-image: url("/../img/rafiki.jpeg");
+}
+
+#bottomRight {
+    /*background-color: rgb(255,255,0*/);
+    opacity: 0.8;
+    position: absolute;
+    margin: 280px 10px 10px 270px;
+    background-image: url("/../img/pumbaa.jpg");
+}
+.highlight {
+    opacity: 1;
+}
+#start {
+    margin: -320px 0px 0px 540px;
+}
+button {
+    background-color: white;
+    width: 50px;
+    height: 20px;
+}
+h1 {
+    margin: 0px 0px 0px 450px;
+}
+p {
+    margin: 20px 0px 0px 500px;
+}
+img {
+    border-radius: 60px;
+}
+body {
+    background-image: url("/../img/prideRock.jpg");
+    background-attachment: fixed;
+    background-size: 100%;
+}
+#mufasa {
+    width: 100px;
+    height: 100px;
+}
+#title {
+    margin: 0px 0px 0px 450px;
+}
+#secret_gif {
+    display: none;
+    margin: 0px 0px 0px 350px;
+    height: 350px
+    width: 350px;
+}
+#hidden_title {
+    display: none;
+    margin: 0px 0px 0px 350px;
+}
+#round {
+    background-color: rgba(255,255,255, .8);
+    width: 150px;
+    border-radius: 5px;
+}
+#watch {
+    background-color: rgba(255,255,255, .8);
+    width: 150px;
+    border-radius: 5px;
+}
