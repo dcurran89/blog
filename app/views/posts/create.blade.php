@@ -3,10 +3,12 @@
 @section('head')
     
     <title>Create Form</title>
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+@stop
 
 @section('content')
 
-        <div class="form-group col-md-4">  
+        <div class="form-group col-md-4 create-form">  
         {{ Form::open(array
             (
             'action' => 'PostsController@store',
@@ -46,5 +48,5 @@
 
         {{ Form::close() }}
         </div>
-
+@stop
 

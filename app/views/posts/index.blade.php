@@ -15,6 +15,8 @@
                 <a href="../posts/{{{ $post->id }}}">
                     <h3>{{{ $post->title }}}</h3>
                 </a>
+                <p><small> Posted On: {{ $post->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A') }} </small></p>
+                <p><small> Updated: {{ $post->updated_at->setTimezone('America/Chicago')->diffForHumans() }} </small></p>
                 <p>{{{ $post->body }}}</p>
 
             @endforeach

@@ -42,15 +42,23 @@ class PostsController extends \BaseController {
 	    // attempt validation
 	    if ($validator->fails()) {
 	        // validation failed, redirect to the post create page with validation errors and old inputs
+        	Session::flash('errorMessage', 'Stupid User! Do things mas better!');
 	        return Redirect::back()->withInput()->withErrors($validator);
 	    } else {
 	        // validation succeeded, create and save the post
 	        if($post->save()) {
+			    Session::flash('successMessage', 'Post has been saved!');
 				return Redirect::action('PostsController@show', $post->id);
 			} else {
+				//*************************************************************
+				//If this error message shows something really bad happened
+				//e.g. database disconnect
+				//*************************************************************
+	        	Session::flash('errorMessage', 'Something very bad happened');
 				return Redirect::back()->withInput();
 			}
 	    }
+
 		
 	}
 
@@ -103,6 +111,8 @@ class PostsController extends \BaseController {
 	    } else {
 	        // validation succeeded, create and save the post
 	        if($post->save()) {
+
+			    Session::flash('successMessage', 'Post has been updated!');
 				return Redirect::action('PostsController@show', $post->id);
 			} else {
 				return Redirect::back()->withInput();

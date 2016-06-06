@@ -2,8 +2,9 @@
 
 @section('head')
     
-    <title>Create Form</title>
+    <title>Edit Form</title>
     <link rel="stylesheet" type="text/css" href="../../css/main.css">
+    
 @section('content')
 
         <div class="form-group col-md-4 col-md-offset-4">  
@@ -37,8 +38,8 @@
           <br>
 
           <!-- submit button -->
-          <button type="submit" name="action" class="btn btn-submit">Submit Edit</button>
-          <a class="btn btn-default" href="../../posts/{{{ $post['id'] }}}">Return to Post Without Saving Edit</a>
+          <button type="submit" name="action" class="btn btn-success">Submit Edit</button>
+          <a class="btn btn-danger" href="../../posts/{{{ $post['id'] }}}">Return to Post Without Saving Edit</a>
 
         {{ Form::close() }}
         </div>
