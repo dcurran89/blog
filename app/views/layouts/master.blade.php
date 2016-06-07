@@ -23,6 +23,9 @@
             <a href="/users/login" type="submit" class="btn btn-default navbut">Log In</a>
         </div>
         <div class="form-group signinbut">
+            <a href="/posts/create" class="btn btn-default navbut">Create Post</a>
+        </div>
+        <div class="form-group signinbut">
             <a href="" class="btn btn-default navbut">Link to Resume?</a>
         </div>
 
@@ -35,7 +38,7 @@
         </div>
     </nav>
     <main class="">
-    
+
         @if (Session::has('successMessage'))
             <div class="alert alert-success">{{{ Session::get('successMessage') }}}</div>
         @endif

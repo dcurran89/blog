@@ -10,7 +10,8 @@ class PostsController extends \BaseController {
 	public function index()
 	{
 		$posts = Post::paginate(4);
-		return View::make('posts.index')->with(array('posts' => $posts));
+    	$postsOrder = Post::orderBy('id', 'DESC')->get();
+		return View::make('posts.index')->with(array('posts' => $posts, 'postsOrder' => $postsOrder));
 	}
 
 

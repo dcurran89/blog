@@ -4,10 +4,10 @@
     
     <title>Edit Form</title>
     <link rel="stylesheet" type="text/css" href="../../css/main.css">
-    
+
 @section('content')
 
-        <div class="form-group col-md-4 col-md-offset-4">  
+        <div class="form-group col-md-4 col-md-offset-4 post">  
         {{ Form::model($post, array('action' => array('PostsController@update', $post->id), 'method' => 'PUT')) }}
 
           <br>

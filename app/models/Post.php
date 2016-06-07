@@ -1,6 +1,6 @@
 <?php
 
-class Post extends Eloquent
+class Post extends BaseModel
 {
     protected $table = 'posts';
 
@@ -10,7 +10,11 @@ class Post extends Eloquent
         'body' => 'required|max:1000'
     );
 
-    // $posts = Post::orderBy('id', 'DESC')->get();
+    public function user()
+    {
+        return $this->belongsTo('User');
+    }
+
 }
 
 ?>
