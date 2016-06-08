@@ -2,6 +2,15 @@
 
 class PostsController extends \BaseController {
 
+	public function __construct()
+	{
+		// $this->beforeFilter('auth', array(
+		// 	'except' => array(
+		// 		'index', 
+		// 		'show'
+		// 		)
+		// 	));
+	}
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -10,7 +19,11 @@ class PostsController extends \BaseController {
 	public function index()
 	{
 		$posts = Post::paginate(4);
+		// $posts = Post::where('user_id','=', Auth::id())->get();
     	$postsOrder = Post::orderBy('id', 'DESC')->get();
+
+        // var_dump(Session::all());
+
 		return View::make('posts.index')->with(array('posts' => $posts, 'postsOrder' => $postsOrder));
 	}
 
@@ -36,6 +49,7 @@ class PostsController extends \BaseController {
 		$post = new Post();
 		$post->title = Input::get('title');
 		$post->body = Input::get('body');
+		$post->user_id = Auth::id();
 
 		// create the validator
 	    $validator = Validator::make(Input::all(), Post::$rules);
@@ -47,6 +61,13 @@ class PostsController extends \BaseController {
 	        return Redirect::back()->withInput()->withErrors($validator);
 	    } else {
 	        // validation succeeded, create and save the post
+			    if(Input::hasFile('img')) {
+			    	$img = Input::file('img');
+			    	$imgName = $img->getClientOriginalName();
+			    	$systemPath = public_path() . '/uploads';
+			    	$img->move($systemPath, $imgName);
+			    	$post->img_path = '/uploads/' . $imgName;
+			    }
 	        if($post->save()) {
 			    Session::flash('successMessage', 'Post has been saved!');
 				return Redirect::action('PostsController@show', $post->id);
@@ -59,6 +80,7 @@ class PostsController extends \BaseController {
 				return Redirect::back()->withInput();
 			}
 	    }
+
 
 		
 	}
@@ -98,10 +120,6 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$post = Post::find($id);
-		$post->title = Input::get('title');
-		$post->body = Input::get('body');
-
 		// create the validator
 	    $validator = Validator::make(Input::all(), Post::$rules);
 
@@ -111,8 +129,18 @@ class PostsController extends \BaseController {
 	        return Redirect::back()->withInput()->withErrors($validator);
 	    } else {
 	        // validation succeeded, create and save the post
-	        if($post->save()) {
-
+	        $post = Post::find($id);
+			$post->title = Input::get('title');
+			$post->body = Input::get('body');
+        	if(Input::hasFile('img')) {
+        		// dd('you have an image');
+		    	$img = Input::file('img');
+		    	$imgName = $post->id . '.' . $img->getClientOriginalExtension();
+		    	$systemPath = public_path() . '/uploads';
+		    	$img->move($systemPath, $imgName);
+		    	$post->img_path = '/uploads/' . $imgName;
+		    }
+			if($post->save()) {
 			    Session::flash('successMessage', 'Post has been updated!');
 				return Redirect::action('PostsController@show', $post->id);
 			} else {
@@ -132,6 +160,8 @@ class PostsController extends \BaseController {
 	{
 		$post = Post::find($id);
 		$post->delete();
+		Session::flash('successMessage', 'Post has been deleted!');
+		return Redirect::action('PostsController@index');
 	}
 
 

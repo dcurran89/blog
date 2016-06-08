@@ -7,7 +7,7 @@ class Post extends BaseModel
     public static $rules = array
     (
         'title' => 'required|max:100',
-        'body' => 'required|max:1000'
+        'body' => 'required|max:5000'
     );
 
     public function user()

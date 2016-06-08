@@ -1,11 +1,11 @@
-.signinbut{
+.headerButton{
     padding-right: 20px;
     float: right;   
     padding-top: 30px;  
 }
 .logo{
     font-family: 'Pacifico', cursive;
-    font-size: 50px;
+    font-size: 3.5em;
     color: red;
     text-align: left;
     padding-bottom: 15px;
@@ -33,10 +33,10 @@
     color: red;
 }
 .post {
-    background-color: #484848;
+    background-color: rgba(0,0,0,.7);
     border-radius: 10px;
     padding: 10px;
-    margin: 10px;
+    margin-bottom: 40px;
     color: white;
 }
 .title{
@@ -44,6 +44,8 @@
 }
 #title{
     color: red;
+    font-family: 'Pacifico';
+    text-align: center;
 }
 .postedOn {
     text-align: center;
@@ -51,6 +53,37 @@
 .updatedOn {
     text-align: center;
 }
+a.headerBut {
+    color: red;
+    font-family: 'Pacifico', cursive;
+    font-size: 1em;
+}
+a.headerBut:hover {
+    color:  white;
+}
 body {
-    background-color: #343434;
+    background: url('/img/Earth-space.jpg') no-repeat center fixed;
+    background-size: cover;
+}
+a#title {
+    text-decoration: none;
+}
+a#title:hover {
+    color: white;
+}
+.welcome{
+    color: white;
+    text-align: center;
+}
+.img_resize {
+    padding-top: 50px;
+    width: 400px;
+    height: auto;
+    display: block;
+    margin: auto;
+    border-radius: 5px;
+    border: none;
+}
+.delete_post {
+    /*margin-left: 50px;*/
 }

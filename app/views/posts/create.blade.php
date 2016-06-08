@@ -7,13 +7,14 @@
 @stop
 
 @section('content')
-
+        @if(Auth::check())
         <div class="form-group col-md-6 col-md-offset-3 create-form">  
           <div class="post">
             {{ Form::open(array
                 (
-                'action' => 'PostsController@store',
-                'class'  => 'form-group'
+                'action'  => 'PostsController@store',
+                'class'   => 'form-group',
+                'files'   => true
                 ))
             }}
 
@@ -44,11 +45,17 @@
               <br>
               <br>
 
+              <input type="file" name="img">
+
               <!-- submit button -->
               <button type="submit" name="action" class="btn btn-submit">Submit</button>
 
             {{ Form::close() }}
+
           </div>
         </div>
+        @else
+          <h1>Please Log In to Create a Post</h1>
+        @endif
 @stop
 

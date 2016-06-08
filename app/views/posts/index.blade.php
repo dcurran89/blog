@@ -1,8 +1,10 @@
+
 @extends('layouts.master')
 
 @section('head')
 
     <title>Blog Posts</title>
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
 
 @stop
 
@@ -13,9 +15,12 @@
             @foreach($posts as $post)
                 <div class="post">
                     <!-- links to each show page -->
-                    <a href="../posts/{{{ $post->id }}}">
-                        <h3 id="title" class="title">{{{ $post->title }}}</h3>
-                    </a>
+                    @unless(empty($post->img_path))
+                        <a href="../posts/{{{ $post->id }}}"><img class="img_resize" src="{{{$post->img_path}}}"></a>
+                    @endunless
+                    <h2 class="title">
+                        <a id="title" class="title" href="../posts/{{{ $post->id }}}">{{{ $post->title }}}</a>
+                    </h2>
                     <p class="postedOn"><small> Posted On: {{ $post->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A') }} by {{{ $post->user->username }}}</small></p>
                     <p class="updatedOn"><small> Updated: {{ $post->updated_at->setTimezone('America/Chicago')->diffForHumans() }} </small></p>
                     <p>{{{ $post->body }}}</p>

@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration {
 			$table->foreign('user_id')->references('id')->on('users');
 			$table->string('title', 100)->unique();
 			$table->text('body');
+			$table->string('img_path');
 			$table->timestamps();
 		});
 	}

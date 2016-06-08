@@ -8,7 +8,7 @@
 @section('content')
 
         <div class="form-group col-md-4 col-md-offset-4 post">  
-        {{ Form::model($post, array('action' => array('PostsController@update', $post->id), 'method' => 'PUT')) }}
+        {{ Form::model($post, array('action' => array('PostsController@update', $post->id), 'method' => 'PUT','files' => true)) }}
 
           <br>
 
@@ -36,6 +36,8 @@
           {{ $errors->first('body', '<span class="">:message</span>') }}
           <br>
           <br>
+
+          <input type="file" name="img">
 
           <!-- submit button -->
           <button type="submit" name="action" class="btn btn-success">Submit Edit</button>

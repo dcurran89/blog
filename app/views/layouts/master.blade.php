@@ -16,21 +16,20 @@
 </head>
 <body>
     <nav class="navbar navbar-default navbar navbar-inverse">
-        <div class="form-group signinbut">
-            <a href="/users/logout" type="submit" class="btn btn-default navbut">Log Out</a>
+        <div class="form-group headerButton">
+            <a href="/logout" type="submit" class="headerBut">LOG OUT</a>
         </div>
-        <div class="form-group signinbut">
-            <a href="/users/login" type="submit" class="btn btn-default navbut">Log In</a>
+        <div class="form-group headerButton">
+            <a href="/login" type="submit" class="headerBut">LOG IN</a>
         </div>
-        <div class="form-group signinbut">
-            <a href="/posts/create" class="btn btn-default navbut">Create Post</a>
+        <div class="form-group headerButton">
+            <a href="" class="headerBut">PORTFOLIO</a>
         </div>
-        <div class="form-group signinbut">
-            <a href="" class="btn btn-default navbut">Link to Resume?</a>
+        <div class="form-group headerButton">
+            <a href="/posts/create" class="headerBut">CREATE POSTS</a>
         </div>
-
-        <div class="form-group signinbut">
-            <a href="" class="btn btn-default navbut">Link to Projects?</a>
+        <div class="form-group headerButton">
+            <a href="/posts/" class="headerBut">HOME</a>
         </div>
 
         <div class="logo">
