@@ -16,26 +16,27 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <div class="post_show">
-                @unless(empty($post['img_path']))
-                    <img class="img_resize" src="{{{$post['img_path']}}}">
-                @endunless
-                <h2>Post: #{{{ $post['id'] }}}</h2>
-                <h3>{{{ $post['title'] }}}</h3>
-                <p>{{{ $post['body'] }}}</p>
-            </div>
-            <div class="">
-                
-                {{ Form::open([
-                    'method' => 'DELETE',
-                    'route' => ['posts.destroy', $post->id]
-                    ]) 
-                }}
-                <a class="btn btn-default" href="../posts/{{{ $post['id'] }}}/edit">Edit This Post!</a>
-                {{ Form::submit('Delete This Post', ['class' => 'btn btn-danger pull-right'])}}
+                    @unless(empty($post['img_path']))
+                        <img class="img_resize" src="{{{$post['img_path']}}}">
+                    @endunless
+                    <h2>Post: #{{{ $post['id'] }}}</h2>
+                    <h3>{{{ $post['title'] }}}</h3>
+                    <p>{{{ $post['body'] }}}</p>
+                </div>
+                <div class="">
                     
+                    {{ Form::open([
+                        'method' => 'DELETE',
+                        'route' => ['posts.destroy', $post->id]
+                        ]) 
+                    }}
+                    @if(Auth::check())
+                    <a class="btn btn-default" href="../posts/{{{ $post['id'] }}}/edit">Edit This Post!</a>
+                    {{ Form::submit('Delete This Post', ['class' => 'btn btn-danger pull-right'])}}
+                    @endif
 
-                    
-                {{ Form::close()}}
+                        
+                    {{ Form::close()}}
 
             </div>
         </div>
