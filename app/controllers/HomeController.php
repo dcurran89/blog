@@ -56,6 +56,7 @@ class HomeController extends BaseController {
         ];
         var_dump($credentials);
         // dd(Session::all());
+        
 		// Validate Input Fields
 		// create the validator
 	    $validator = Validator::make(Input::all(), User::$loginRules);//make rules
@@ -68,7 +69,7 @@ class HomeController extends BaseController {
 	    } else {
 	    	//Attempt Login
 			if (Auth::attempt($credentials)) {
-				Session::flash('successMessage', "Welcome {$credentials['username']}");
+				Session::flash('successMessage', "Welcome {$credentials['username']}, feel free to browse the site or Create a Post by clicking the link above!");
 			    return Redirect::to('/posts');
 			} else {
 			    // login failed, go back to the login screen

@@ -15,7 +15,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <div class="post">
+            <div class="post_show">
                 @unless(empty($post['img_path']))
                     <img class="img_resize" src="{{{$post['img_path']}}}">
                 @endunless
@@ -24,13 +24,14 @@
                 <p>{{{ $post['body'] }}}</p>
             </div>
             <div class="">
-                <a class="btn btn-default" href="../posts/{{{ $post['id'] }}}/edit">Edit This Post!</a>
+                
                 {{ Form::open([
                     'method' => 'DELETE',
                     'route' => ['posts.destroy', $post->id]
                     ]) 
                 }}
-                {{ Form::submit('Delete This Post', ['class' => 'btn btn-danger delete_post'])}}
+                <a class="btn btn-default" href="../posts/{{{ $post['id'] }}}/edit">Edit This Post!</a>
+                {{ Form::submit('Delete This Post', ['class' => 'btn btn-danger pull-right'])}}
                     
 
                     

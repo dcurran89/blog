@@ -10,17 +10,15 @@
     <!-- My CSS -->
     <link rel="stylesheet" type="text/css" href="../css/main.css">
 
-    @yield('head')
-
-    
-</head>
-<body>
-    <nav class="navbar navbar-default navbar navbar-inverse">
+    <div class="jumbotron">
+    </div>
+    @if(Auth::check())
+    <nav class="navbar navbar-default navbar">
         <div class="form-group headerButton">
-            <a href="/logout" type="submit" class="headerBut">LOG OUT</a>
+            <a href="/posts" class="headerBut">HELLO {{ Auth::user()->username }}!</a>
         </div>
         <div class="form-group headerButton">
-            <a href="/login" type="submit" class="headerBut">LOG IN</a>
+            <a href="/logout" type="submit" class="headerBut">LOG OUT</a>
         </div>
         <div class="form-group headerButton">
             <a href="/" class="headerBut">PORTFOLIO</a>
@@ -36,6 +34,31 @@
             <a href="/posts" type="submit" class="nav-home">Daniel's Blog</a>
         </div>
     </nav>
+    @else
+    <nav class="navbar navbar-default navbar">
+        
+        <div class="form-group headerButton">
+            <a href="/login" type="submit" class="headerBut">LOG IN</a>
+        </div>
+        <div class="form-group headerButton">
+            <a href="/" class="headerBut">PORTFOLIO</a>
+        </div>
+        <div class="form-group headerButton">
+            <a href="/posts/" class="headerBut">HOME</a>
+        </div>
+
+        <div class="logo">
+            <a href="/posts" type="submit" class="nav-home">Daniel's Blog</a>
+        </div>
+    </nav>
+    @endif
+
+    @yield('head')
+
+    
+</head>
+<body>
+
     <main class="">
 
         @if (Session::has('successMessage'))

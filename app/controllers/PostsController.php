@@ -18,13 +18,22 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$posts = Post::paginate(4);
-		// $posts = Post::where('user_id','=', Auth::id())->get();
+		if(Auth::check()){
+		$posts = Post::where('user_id','=', Auth::id())->orderBy('title')->paginate(4);
     	$postsOrder = Post::orderBy('id', 'DESC')->get();
 
         // var_dump(Session::all());
 
 		return View::make('posts.index')->with(array('posts' => $posts, 'postsOrder' => $postsOrder));
+		}else{
+		$posts = Post::paginate(4);
+    	$postsOrder = Post::orderBy('id', 'DESC')->get();
+
+        // var_dump(Session::all());
+
+		return View::make('posts.index')->with(array('posts' => $posts, 'postsOrder' => $postsOrder));
+		}
+
 	}
 
 

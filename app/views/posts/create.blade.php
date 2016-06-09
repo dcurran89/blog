@@ -42,11 +42,13 @@
                   ])
               }}
               {{ $errors->first('body', '<span class="">:message</span>') }}
-              <br>
-              <br>
-
+              
+              <!-- had to add all of this to change file button text -->
+              <!-- <label for="files"> <span class="btn btn-default">Select Image</span></label>
+              <input style="visibility: hidden; position: absolute;" id="files" class="form-control"
+                    type="file" name="files"> -->
               <input type="file" name="img">
-
+              <br>
               <!-- submit button -->
               <button type="submit" name="action" class="btn btn-submit">Submit</button>
 

@@ -50,8 +50,8 @@
               <br>
 
               <!-- submit button -->
-              <button type="submit" class="btn btn-default">Login</button>
 
+              <button type="submit" class="btn btn-default">Login</button>
             {{ Form::close() }}
           </div>
         </div>

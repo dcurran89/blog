@@ -21,9 +21,12 @@
                     <h2 class="title">
                         <a id="title" class="title" href="../posts/{{{ $post->id }}}">{{{ $post->title }}}</a>
                     </h2>
-                    <p class="postedOn"><small> Posted On: {{ $post->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A') }} by {{{ $post->user->username }}}</small></p>
                     <p class="updatedOn"><small> Updated: {{ $post->updated_at->setTimezone('America/Chicago')->diffForHumans() }} </small></p>
                     <p>{{{ $post->body }}}</p>
+                    <p class="postedOn"><small> Posted On: {{ $post->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A') }} by {{{ $post->user->username }}}</small></p>
+                </div>
+                <div class="post_divider">
+                    
                 </div>
             @endforeach
             
