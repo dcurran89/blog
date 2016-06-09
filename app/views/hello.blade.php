@@ -8,5 +8,6 @@
 
 @section('content')
 
-		<h1>Portfolio Will Go Here</h1>
+	<h1>Portfolio Will Go Here</h1>
+	
 @stop

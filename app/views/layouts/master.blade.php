@@ -23,7 +23,7 @@
             <a href="/login" type="submit" class="headerBut">LOG IN</a>
         </div>
         <div class="form-group headerButton">
-            <a href="" class="headerBut">PORTFOLIO</a>
+            <a href="/" class="headerBut">PORTFOLIO</a>
         </div>
         <div class="form-group headerButton">
             <a href="/posts/create" class="headerBut">CREATE POSTS</a>
