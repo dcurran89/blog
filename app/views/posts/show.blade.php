@@ -30,7 +30,7 @@
                         'route' => ['posts.destroy', $post->id]
                         ]) 
                     }}
-                    @if(Auth::check())
+                    @if(Auth::id() == $post->user_id)
                     <a class="btn btn-default" href="../posts/{{{ $post['id'] }}}/edit">Edit This Post!</a>
                     {{ Form::submit('Delete This Post', ['class' => 'btn btn-danger pull-right'])}}
                     @endif

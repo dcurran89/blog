@@ -19,7 +19,8 @@ class PostsController extends \BaseController {
 	public function index()
 	{
 		if(Auth::check()){
-		$posts = Post::where('user_id','=', Auth::id())->orderBy('title')->paginate(4);
+		$posts = Post::paginate(4);
+		// $posts = Post::where('user_id','=', Auth::id())->orderBy('title')->paginate(4);
     	$postsOrder = Post::orderBy('id', 'DESC')->get();
 
         // var_dump(Session::all());
